@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siloni V | Student Portfolio & Academic Dashboard</title>
+  <meta name="description" content="Academic Progress and Student Portfolio for Siloni V, B.Sc. Computer Science student at Thiagarajar College, Madurai.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar / Header Glow -->
+  <div class="header-glow"></div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header" id="top-nav">
+    <div class="nav-container">
+      <a href="#profile" class="brand-badge" onclick="switchTab('profile'); return false;">
+        <div class="brand-avatar-mini">SV</div>
+        <div class="brand-text">
+          <span class="brand-name">Siloni V</span>
+          <span class="brand-subtitle">B.Sc. Computer Science • 3rd Year</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li>
+            <a href="#profile" class="nav-link active" id="nav-profile" data-tab="profile" onclick="switchTab('profile'); return false;">
+              <i class="fa-solid fa-user-graduate"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#academics" class="nav-link" id="nav-academics" data-tab="academics" onclick="switchTab('academics'); return false;">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Academic Performance</span>
+            </a>
+          </li>
+          <li>
+            <a href="#transport" class="nav-link" id="nav-transport" data-tab="transport" onclick="switchTab('transport'); return false;">
+              <i class="fa-solid fa-bus-simple"></i>
+              <span>Transport Sequence</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Color Theme" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon dark-icon"></i>
+          <i class="fa-solid fa-sun light-icon"></i>
+        </button>
+        <button class="print-btn" id="print-page-btn" aria-label="Print or Save Portfolio" title="Print / PDF View">
+          <i class="fa-solid fa-print"></i>
+          <span>Print</span>
+        </button>
+        <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Mobile Navigation">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="#profile" class="mobile-nav-link active" data-tab="profile" onclick="switchTab('profile'); closeMobileMenu(); return false;"><i class="fa-solid fa-user-graduate"></i> My Profile</a></li>
+      <li><a href="#academics" class="mobile-nav-link" data-tab="academics" onclick="switchTab('academics'); closeMobileMenu(); return false;"><i class="fa-solid fa-chart-line"></i> Academic Performance</a></li>
+      <li><a href="#transport" class="mobile-nav-link" data-tab="transport" onclick="switchTab('transport'); closeMobileMenu(); return false;"><i class="fa-solid fa-bus-simple"></i> Transport Sequence</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- Hero / Welcome Banner -->
+    <section class="hero-strip">
+      <div class="hero-content">
+        <div class="hero-status-pill">
+          <span class="status-indicator-dot"></span>
+          <span>Active Academic Session 2024–2027</span>
+        </div>
+        <h1 class="hero-title">Student Portfolio & Academic Dashboard</h1>
+        <p class="hero-lead">Undergraduate progress tracking, course mark sheets, academic analytics, and daily college transit sequence.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 1: MY PROFILE
+         ========================================== -->
+    <section id="profile" class="dashboard-section tab-view active">
+      <div class="section-header">
+        <div class="section-icon-badge profile-badge">
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+        <div>
+          <h2 class="section-heading">👤 My Profile</h2>
+          <p class="section-desc">Personal details, institutional affiliation, contact info, and technical skills portfolio.</p>
+        </div>
+      </div>
+
+      <div class="profile-layout-grid">
+        
+        <!-- Left: Main Profile Card -->
+        <div class="profile-card modern-card">
+          <div class="profile-card-header">
+            <div class="profile-avatar-container">
+              <div class="profile-avatar-wrapper">
+                <!-- High-design avatar graphic placeholder -->
+                <div class="profile-avatar-placeholder">
+                  <span class="avatar-initials">SV</span>
+                  <div class="avatar-ring"></div>
+                </div>
+                <span class="avatar-badge" title="Enrolled Student">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </span>
+              </div>
+            </div>
+            
+            <div class="profile-primary-details">
+              <div class="profile-name-row">
+                <h3 class="student-name">Siloni V</h3>
+                <span class="reg-tag"><i class="fa-solid fa-hashtag"></i> 24UCS42</span>
+              </div>
+              <p class="student-degree">
+                <i class="fa-solid fa-laptop-code"></i>
+                <strong>B.Sc. Computer Science</strong>
+              </p>
+              <div class="student-status-chips">
+                <span class="chip chip-purple"><i class="fa-solid fa-building-columns"></i> Computer Science Dept</span>
+                <span class="chip chip-blue"><i class="fa-solid fa-calendar-check"></i> 3rd Year</span>
+                <span class="chip chip-green"><i class="fa-solid fa-circle-check"></i> Good Standing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-divider"></div>
+
+          <!-- Academic & Contact Details Grid -->
+          <div class="details-grid">
+            
+            <div class="detail-item">
+              <div class="detail-icon college-icon">
+                <i class="fa-solid fa-landmark"></i>
+              </div>
+              <div class="detail-info">
+                <span class="detail-label">College Name</span>
+                <strong class="detail-value">Thiagarajar College</strong>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon website-icon">
+                <i class="fa-solid fa-globe"></i>
+              </div>
+              <div class="detail-info">
+                <span class="detail-label">College Website</span>
+                <a href="https://www.tcarts.in" target="_blank" rel="noopener noreferrer" class="detail-link">
+                  www.tcarts.in
+                  <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon email-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="detail-info">
+                <span class="detail-label">Student Email</span>
+                <a href="mailto:24ucs42@tcarts.in" class="detail-link">
+                  24ucs42@tcarts.in
+                </a>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon phone-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="detail-info">
+                <span class="detail-label">Phone Number</span>
+                <a href="tel:9384365246" class="detail-link">
+                  +91 93843 65246
+                </a>
+              </div>
+            </div>
+
+            <div class="detail-item full-width-detail">
+              <div class="detail-icon address-icon">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div class="detail-info">
+                <span class="detail-label">College Address</span>
+                <p class="detail-address-text">139–140, Kamarajar Salai, Teppakulam, Madurai – 625009, Tamil Nadu, India</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Skills Card -->
+        <div class="skills-card modern-card">
+          <div class="skills-card-header">
+            <div class="skills-title-group">
+              <div class="card-icon-tag"><i class="fa-solid fa-code"></i></div>
+              <div>
+                <h3 class="card-subheading">Technical & Professional Skills</h3>
+                <p class="card-caption">Curated skill proficiencies across software development & computer science</p>
+              </div>
+            </div>
+            <span class="skills-count-badge">10 Skills</span>
+          </div>
+
+          <div class="skills-container">
+            
+            <div class="skill-badge-card" data-skill="html">
+              <div class="skill-icon-wrapper skill-html">
+                <i class="fa-brands fa-html5"></i>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">HTML</span>
+                <span class="skill-level">Web Markup</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="css">
+              <div class="skill-icon-wrapper skill-css">
+                <i class="fa-brands fa-css3-alt"></i>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">CSS</span>
+                <span class="skill-level">Styling & UI</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="js">
+              <div class="skill-icon-wrapper skill-js">
+                <i class="fa-brands fa-js"></i>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-level">Client Scripting</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="python">
+              <div class="skill-icon-wrapper skill-python">
+                <i class="fa-brands fa-python"></i>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">Python</span>
+                <span class="skill-level">Scripting & Logic</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="java">
+              <div class="skill-icon-wrapper skill-java">
+                <i class="fa-brands fa-java"></i>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">Java</span>
+                <span class="skill-level">OOP & Core/Adv</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="c">
+              <div class="skill-icon-wrapper skill-c">
+                <span class="lang-symbol">C</span>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">C</span>
+                <span class="skill-level">Procedural & Memory</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="cpp">
+              <div class="skill-icon-wrapper skill-cpp">
+                <span class="lang-symbol">C++</span>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">C++</span>
+                <span class="skill-level">Data Structures</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="php">
+              <div class="skill-icon-wrapper skill-php">
+                <i class="fa-brands fa-php"></i>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">PHP</span>
+                <span class="skill-level">Server Web Tech</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="dbms">
+              <div class="skill-icon-wrapper skill-dbms">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">DBMS</span>
+                <span class="skill-level">SQL & Relations</span>
+              </div>
+            </div>
+
+            <div class="skill-badge-card" data-skill="comm">
+              <div class="skill-icon-wrapper skill-comm">
+                <i class="fa-solid fa-comments"></i>
+              </div>
+              <div class="skill-meta">
+                <span class="skill-name">Communication Skills</span>
+                <span class="skill-level">Professional & Team</span>
+              </div>
+            </div>
+
+          </div>
+          
+          <div class="skills-footer-note">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span>Continuously practiced across academic lab sessions, mini-projects, and coursework.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: ACADEMIC PERFORMANCE
+         ========================================== -->
+    <section id="academics" class="dashboard-section tab-view">
+      <div class="section-header">
+        <div class="section-icon-badge academic-badge">
+          <i class="fa-solid fa-chart-column"></i>
+        </div>
+        <div>
+          <h2 class="section-heading">📊 Academic Performance</h2>
+          <p class="section-desc">Semester-wise analytics, cumulative metrics, interactive progress charts, and complete subject mark sheets.</p>
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="kpi-grid">
+        
+        <div class="kpi-card kpi-purple">
+          <div class="kpi-icon-box">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Cumulative CGPA</span>
+            <div class="kpi-value-row">
+              <span class="kpi-val" id="cumulative-cgpa">8.14</span>
+              <span class="kpi-scale">/ 10.0</span>
+            </div>
+            <span class="kpi-trend positive">
+              <i class="fa-solid fa-arrow-trend-up"></i> Consistent First Class
+            </span>
+          </div>
+        </div>
+
+        <div class="kpi-card kpi-blue">
+          <div class="kpi-icon-box">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Total Credits Earned</span>
+            <div class="kpi-value-row">
+              <span class="kpi-val">89</span>
+              <span class="kpi-scale">Credits</span>
+            </div>
+            <span class="kpi-trend neutral">
+              <i class="fa-solid fa-check-double"></i> 100% Course Load Cleared
+            </span>
+          </div>
+        </div>
+
+        <div class="kpi-card kpi-emerald">
+          <div class="kpi-icon-box">
+            <i class="fa-solid fa-hourglass-half"></i>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Semesters Completed</span>
+            <div class="kpi-value-row">
+              <span class="kpi-val">4</span>
+              <span class="kpi-scale">/ 6 Semesters</span>
+            </div>
+            <span class="kpi-trend positive">
+              <i class="fa-solid fa-calendar-days"></i> 2 Academic Years Done
+            </span>
+          </div>
+        </div>
+
+        <div class="kpi-card kpi-amber">
+          <div class="kpi-icon-box">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <div class="kpi-body">
+            <span class="kpi-label">Highest Sem Score</span>
+            <div class="kpi-value-row">
+              <span class="kpi-val">80.50%</span>
+              <span class="kpi-scale">Sem 4</span>
+            </div>
+            <span class="kpi-trend positive">
+              <i class="fa-solid fa-trophy"></i> Peak Performance
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Semester Summary Table -->
+      <div class="modern-card summary-table-card">
+        <div class="card-top-bar">
+          <div>
+            <h3 class="card-subheading"><i class="fa-solid fa-table-list"></i> Semester Summary Overview</h3>
+            <p class="card-caption">Aggregate percentage, CGPA rating, and credit allocation across completed terms</p>
+          </div>
+          <span class="badge-status-green"><i class="fa-solid fa-shield-halved"></i> 100% All Pass</span>
+        </div>
+
+        <div class="table-responsive">
+          <table class="styled-table summary-table">
+            <thead>
+              <tr>
+                <th>Semester</th>
+                <th>Academic Term</th>
+                <th>Percentage</th>
+                <th>Semester CGPA</th>
+                <th>Credits Earned</th>
+                <th>Performance Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Semester 1</strong></td>
+                <td>Year 1 • Odd Term</td>
+                <td><span class="data-score">73.86%</span></td>
+                <td><span class="cgpa-pill">7.83</span></td>
+                <td><span class="credits-pill">23 Credits</span></td>
+                <td><span class="grade-badge badge-b">First Class (B)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Semester 2</strong></td>
+                <td>Year 1 • Even Term</td>
+                <td><span class="data-score highlight-score">78.43%</span></td>
+                <td><span class="cgpa-pill highlight-cgpa">8.32</span></td>
+                <td><span class="credits-pill">21 Credits</span></td>
+                <td><span class="grade-badge badge-a">Distinction (A)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Semester 3</strong></td>
+                <td>Year 2 • Odd Term</td>
+                <td><span class="data-score">76.86%</span></td>
+                <td><span class="cgpa-pill">8.14</span></td>
+                <td><span class="credits-pill">22 Credits</span></td>
+                <td><span class="grade-badge badge-a">Distinction (A)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Semester 4</strong></td>
+                <td>Year 2 • Even Term</td>
+                <td><span class="data-score highlight-score">80.50%</span></td>
+                <td><span class="cgpa-pill highlight-cgpa">8.27</span></td>
+                <td><span class="credits-pill">23 Credits</span></td>
+                <td><span class="grade-badge badge-a">Distinction (A)</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="summary-footer-row">
+                <td colspan="2"><strong>Cumulative Aggregate:</strong></td>
+                <td><strong>77.41% Avg</strong></td>
+                <td><strong>8.14 CGPA</strong></td>
+                <td><strong>89 Total Credits</strong></td>
+                <td><span class="result-badge badge-pass"><i class="fa-solid fa-circle-check"></i> Overall Pass</span></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- Visual Charts Grid -->
+      <div class="charts-double-grid">
+        
+        <!-- Chart 1: Percentage Progress -->
+        <div class="modern-card chart-card">
+          <div class="chart-header">
+            <div>
+              <span class="chart-tag">Trend Analysis</span>
+              <h3 class="chart-title"><i class="fa-solid fa-chart-area"></i> Percentage Progress Chart</h3>
+            </div>
+            <span class="chart-stat-badge">73.86% ➔ 80.50%</span>
+          </div>
+          <p class="chart-subtitle">Semester-wise progression in aggregate percentage across Semesters 1 to 4.</p>
+          <div class="chart-canvas-container">
+            <canvas id="percentageChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 2: CGPA Trajectory -->
+        <div class="modern-card chart-card">
+          <div class="chart-header">
+            <div>
+              <span class="chart-tag">Academic Trajectory</span>
+              <h3 class="chart-title"><i class="fa-solid fa-chart-bar"></i> CGPA Progress Chart</h3>
+            </div>
+            <span class="chart-stat-badge">Sem Avg: 8.14</span>
+          </div>
+          <p class="chart-subtitle">Semester-wise CGPA performance on a 10.0 grade scale.</p>
+          <div class="chart-canvas-container">
+            <canvas id="cgpaChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Subject-Wise Marks & Interactive Search Toolbar -->
+      <div class="marksheet-section-container">
+        
+        <div class="toolbar-card modern-card">
+          <div class="toolbar-left">
+            <div class="search-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input 
+                type="text" 
+                id="subject-search-input" 
+                placeholder="Search subjects (e.g. Java, C Lab, DBMS, Math, Tamil)..." 
+                autocomplete="off"
+              >
+              <button id="clear-search-btn" class="clear-search" style="display: none;" title="Clear search">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <span id="search-feedback-text" class="search-counter"></span>
+          </div>
+
+          <div class="toolbar-right">
+            <button id="expand-all-btn" class="btn-secondary" title="Expand all semester tables">
+              <i class="fa-solid fa-up-right-and-down-left-from-center"></i> Expand All
+            </button>
+            <button id="collapse-all-btn" class="btn-secondary" title="Collapse all semester tables">
+              <i class="fa-solid fa-down-left-and-up-right-to-center"></i> Collapse All
+            </button>
+          </div>
+        </div>
+
+        <!-- Semester 1 Marksheet -->
+        <div class="semester-accordion-item modern-card" id="sem1-card">
+          <button class="accordion-header" aria-expanded="true" data-target="sem1-body">
+            <div class="accordion-title-group">
+              <span class="sem-num-badge">Sem 01</span>
+              <div>
+                <h4 class="sem-heading">Semester 1 Subjects & Marks</h4>
+                <p class="sem-subheading">7 Subjects • 23 Credits • 73.86% • CGPA 7.83</p>
+              </div>
+            </div>
+            <div class="accordion-meta-group">
+              <span class="result-badge badge-pass"><i class="fa-solid fa-check"></i> All Pass</span>
+              <div class="chevron-box"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+          </button>
+
+          <div class="accordion-body active" id="sem1-body">
+            <div class="table-responsive">
+              <table class="styled-table marks-table" data-semester="1">
+                <thead>
+                  <tr>
+                    <th>Subject Name</th>
+                    <th>Internal</th>
+                    <th>External</th>
+                    <th>Final Marks</th>
+                    <th>Grade</th>
+                    <th>Grade Point</th>
+                    <th>Credits</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-book-open"></i> Tamil I</td>
+                    <td>23/25</td>
+                    <td>56/75</td>
+                    <td><span class="score-pill">79</span></td>
+                    <td><span class="grade-badge badge-b">B</span></td>
+                    <td>7.9</td>
+                    <td><span class="credit-dot">3</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-book-open"></i> English Through Prose</td>
+                    <td>22/25</td>
+                    <td>45/75</td>
+                    <td><span class="score-pill">67</span></td>
+                    <td><span class="grade-badge badge-c">C</span></td>
+                    <td>6.7</td>
+                    <td><span class="credit-dot">3</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-seedling"></i> Environmental Studies</td>
+                    <td>15/15</td>
+                    <td>29/35</td>
+                    <td><span class="score-pill">44</span></td>
+                    <td><span class="grade-badge badge-a">A</span></td>
+                    <td>8.8</td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-code"></i> Programming in C</td>
+                    <td>25/25</td>
+                    <td>56/75</td>
+                    <td><span class="score-pill">81</span></td>
+                    <td><span class="grade-badge badge-a">A</span></td>
+                    <td>8.1</td>
+                    <td><span class="credit-dot">4</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-microchip"></i> Digital Principles & Computer Organization</td>
+                    <td>21/25</td>
+                    <td>47/75</td>
+                    <td><span class="score-pill">68</span></td>
+                    <td><span class="grade-badge badge-c">C</span></td>
+                    <td>6.8</td>
+                    <td><span class="credit-dot">4</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row highlight-perfect">
+                    <td class="subject-title"><i class="fa-solid fa-flask-vial"></i> Programming in C Lab</td>
+                    <td>40/40</td>
+                    <td>60/60</td>
+                    <td><span class="score-pill score-perfect">100</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td><strong>10.0</strong></td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-square-root-variable"></i> Discrete Mathematical Structures</td>
+                    <td>23/25</td>
+                    <td>55/75</td>
+                    <td><span class="score-pill">78</span></td>
+                    <td><span class="grade-badge badge-b">B</span></td>
+                    <td>7.8</td>
+                    <td><span class="credit-dot">5</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Semester 2 Marksheet -->
+        <div class="semester-accordion-item modern-card" id="sem2-card">
+          <button class="accordion-header" aria-expanded="true" data-target="sem2-body">
+            <div class="accordion-title-group">
+              <span class="sem-num-badge">Sem 02</span>
+              <div>
+                <h4 class="sem-heading">Semester 2 Subjects & Marks</h4>
+                <p class="sem-subheading">7 Subjects • 21 Credits • 78.43% • CGPA 8.32</p>
+              </div>
+            </div>
+            <div class="accordion-meta-group">
+              <span class="result-badge badge-pass"><i class="fa-solid fa-check"></i> All Pass</span>
+              <div class="chevron-box"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+          </button>
+
+          <div class="accordion-body active" id="sem2-body">
+            <div class="table-responsive">
+              <table class="styled-table marks-table" data-semester="2">
+                <thead>
+                  <tr>
+                    <th>Subject Name</th>
+                    <th>Internal</th>
+                    <th>External</th>
+                    <th>Final Marks</th>
+                    <th>Grade</th>
+                    <th>Grade Point</th>
+                    <th>Credits</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-book-open"></i> Tamil II</td>
+                    <td>22/25</td>
+                    <td>52/75</td>
+                    <td><span class="score-pill">74</span></td>
+                    <td><span class="grade-badge badge-b">B</span></td>
+                    <td>7.4</td>
+                    <td><span class="credit-dot">3</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-book-open"></i> English Through Fiction</td>
+                    <td>22/25</td>
+                    <td>45/75</td>
+                    <td><span class="score-pill">67</span></td>
+                    <td><span class="grade-badge badge-c">C</span></td>
+                    <td>6.7</td>
+                    <td><span class="credit-dot">3</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-heart"></i> Value Education</td>
+                    <td>13/15</td>
+                    <td>27/35</td>
+                    <td><span class="score-pill">40</span></td>
+                    <td><span class="grade-badge badge-a">A</span></td>
+                    <td>8.0</td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-brands fa-java"></i> Java Programming</td>
+                    <td>23/25</td>
+                    <td>61/75</td>
+                    <td><span class="score-pill">84</span></td>
+                    <td><span class="grade-badge badge-a">A</span></td>
+                    <td>8.4</td>
+                    <td><span class="credit-dot">4</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row highlight-perfect">
+                    <td class="subject-title"><i class="fa-solid fa-flask-vial"></i> Java Programming Lab</td>
+                    <td>40/40</td>
+                    <td>60/60</td>
+                    <td><span class="score-pill score-perfect">100</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td><strong>10.0</strong></td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-laptop-code"></i> Web Technology Lab</td>
+                    <td>39/40</td>
+                    <td>58/60</td>
+                    <td><span class="score-pill">97</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td>9.7</td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-chart-pie"></i> Basic Statistics</td>
+                    <td>24/25</td>
+                    <td>63/75</td>
+                    <td><span class="score-pill">87</span></td>
+                    <td><span class="grade-badge badge-a">A</span></td>
+                    <td>8.7</td>
+                    <td><span class="credit-dot">5</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Semester 3 Marksheet -->
+        <div class="semester-accordion-item modern-card" id="sem3-card">
+          <button class="accordion-header" aria-expanded="true" data-target="sem3-body">
+            <div class="accordion-title-group">
+              <span class="sem-num-badge">Sem 03</span>
+              <div>
+                <h4 class="sem-heading">Semester 3 Subjects & Marks</h4>
+                <p class="sem-subheading">7 Subjects • 22 Credits • 76.86% • CGPA 8.14</p>
+              </div>
+            </div>
+            <div class="accordion-meta-group">
+              <span class="result-badge badge-pass"><i class="fa-solid fa-check"></i> All Pass</span>
+              <div class="chevron-box"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+          </button>
+
+          <div class="accordion-body active" id="sem3-body">
+            <div class="table-responsive">
+              <table class="styled-table marks-table" data-semester="3">
+                <thead>
+                  <tr>
+                    <th>Subject Name</th>
+                    <th>Internal</th>
+                    <th>External</th>
+                    <th>Final Marks</th>
+                    <th>Grade</th>
+                    <th>Grade Point</th>
+                    <th>Credits</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-database"></i> Relational Database Management Systems</td>
+                    <td>21/25</td>
+                    <td>52/75</td>
+                    <td><span class="score-pill">73</span></td>
+                    <td><span class="grade-badge badge-b">B</span></td>
+                    <td>7.3</td>
+                    <td><span class="credit-dot">4</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-sitemap"></i> Data Structures and Algorithms</td>
+                    <td>18/25</td>
+                    <td>52/75</td>
+                    <td><span class="score-pill">70</span></td>
+                    <td><span class="grade-badge badge-b">B</span></td>
+                    <td>7.0</td>
+                    <td><span class="credit-dot">4</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-flask-vial"></i> RDBMS Lab</td>
+                    <td>39/40</td>
+                    <td>59/60</td>
+                    <td><span class="score-pill">98</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td>9.8</td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row highlight-perfect">
+                    <td class="subject-title"><i class="fa-solid fa-flask-vial"></i> Data Structures Lab</td>
+                    <td>40/40</td>
+                    <td>60/60</td>
+                    <td><span class="score-pill score-perfect">100</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td><strong>10.0</strong></td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-calculator"></i> Computational Methods</td>
+                    <td>23/25</td>
+                    <td>72/75</td>
+                    <td><span class="score-pill">95</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td>9.5</td>
+                    <td><span class="credit-dot">5</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-book-open"></i> Tamil III</td>
+                    <td>22/25</td>
+                    <td>39/75</td>
+                    <td><span class="score-pill">61</span></td>
+                    <td><span class="grade-badge badge-c">C</span></td>
+                    <td>6.1</td>
+                    <td><span class="credit-dot">3</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-bug"></i> Basics in Apiculture</td>
+                    <td>10/15</td>
+                    <td>31/35</td>
+                    <td><span class="score-pill">41</span></td>
+                    <td><span class="grade-badge badge-a">A</span></td>
+                    <td>8.2</td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Semester 4 Marksheet -->
+        <div class="semester-accordion-item modern-card" id="sem4-card">
+          <button class="accordion-header" aria-expanded="true" data-target="sem4-body">
+            <div class="accordion-title-group">
+              <span class="sem-num-badge">Sem 04</span>
+              <div>
+                <h4 class="sem-heading">Semester 4 Subjects & Marks</h4>
+                <p class="sem-subheading">8 Subjects • 23 Credits • 80.50% • CGPA 8.27</p>
+              </div>
+            </div>
+            <div class="accordion-meta-group">
+              <span class="result-badge badge-pass"><i class="fa-solid fa-check"></i> All Pass</span>
+              <div class="chevron-box"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+          </button>
+
+          <div class="accordion-body active" id="sem4-body">
+            <div class="table-responsive">
+              <table class="styled-table marks-table" data-semester="4">
+                <thead>
+                  <tr>
+                    <th>Subject Name</th>
+                    <th>Internal</th>
+                    <th>External</th>
+                    <th>Final Marks</th>
+                    <th>Grade</th>
+                    <th>Grade Point</th>
+                    <th>Credits</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-book-open"></i> Tamil IV</td>
+                    <td>23/25</td>
+                    <td>54/75</td>
+                    <td><span class="score-pill">77</span></td>
+                    <td><span class="grade-badge badge-b">B</span></td>
+                    <td>7.7</td>
+                    <td><span class="credit-dot">3</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-brain"></i> Mathematics for Competitive Examinations-II</td>
+                    <td>14/15</td>
+                    <td>33/35</td>
+                    <td><span class="score-pill">47</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td>9.4</td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-brands fa-java"></i> Advanced Java Programming</td>
+                    <td>21/25</td>
+                    <td>55/75</td>
+                    <td><span class="score-pill">76</span></td>
+                    <td><span class="grade-badge badge-b">B</span></td>
+                    <td>7.6</td>
+                    <td><span class="credit-dot">4</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-network-wired"></i> Computer Networks</td>
+                    <td>24/25</td>
+                    <td>45/75</td>
+                    <td><span class="score-pill">69</span></td>
+                    <td><span class="grade-badge badge-c">C</span></td>
+                    <td>6.9</td>
+                    <td><span class="credit-dot">4</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row highlight-perfect">
+                    <td class="subject-title"><i class="fa-solid fa-flask-vial"></i> Advanced Java Programming Lab</td>
+                    <td>40/40</td>
+                    <td>60/60</td>
+                    <td><span class="score-pill score-perfect">100</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td><strong>10.0</strong></td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-brands fa-php"></i> PHP Programming Lab</td>
+                    <td>40/40</td>
+                    <td>57/60</td>
+                    <td><span class="score-pill">97</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td>9.7</td>
+                    <td><span class="credit-dot">2</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-chart-gantt"></i> Operations Research</td>
+                    <td>25/25</td>
+                    <td>58/75</td>
+                    <td><span class="score-pill">83</span></td>
+                    <td><span class="grade-badge badge-a">A</span></td>
+                    <td>8.3</td>
+                    <td><span class="credit-dot">5</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                  <tr class="subject-row">
+                    <td class="subject-title"><i class="fa-solid fa-book-bookmark"></i> Knowledge Resource Centre (Library)</td>
+                    <td>70/75</td>
+                    <td>25/25</td>
+                    <td><span class="score-pill">95</span></td>
+                    <td><span class="grade-badge badge-o">O (Outstanding)</span></td>
+                    <td>9.5</td>
+                    <td><span class="credit-dot">1</span></td>
+                    <td><span class="result-badge badge-pass">Pass</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: TRANSPORT SEQUENCE
+         ========================================== -->
+    <section id="transport" class="dashboard-section tab-view">
+      <div class="section-header">
+        <div class="section-icon-badge transport-badge">
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <div>
+          <h2 class="section-heading">🚌 Transport Sequence</h2>
+          <p class="section-desc">Daily commute route from home to Thiagarajar College with all transit stops and route description.</p>
+        </div>
+      </div>
+
+      <!-- Description Narrative Card -->
+      <div class="modern-card route-narrative-card">
+        <div class="quote-icon-bubble">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <div class="narrative-body">
+          <h3 class="narrative-title">Daily College Transit Route Description</h3>
+          <p class="narrative-text">
+            &ldquo;From my home, I walk to Sandhai Bus Stop, which takes about 10 minutes. From Sandhai Bus Stop, I take a Government Bus towards Teppakulam. The bus passes through Keelavasal, Munichalai, Sandhaipettai, Ganesh Theatre, Nirmala School, and Anupanadi. Finally, I get down at Teppakulam and proceed to Thiagarajar College.&rdquo;
+          </p>
+          <div class="route-quick-stats">
+            <span class="stat-pill"><i class="fa-solid fa-person-walking"></i> 10 Min Walk</span>
+            <span class="stat-pill"><i class="fa-solid fa-bus"></i> Government Bus</span>
+            <span class="stat-pill"><i class="fa-solid fa-location-crosshairs"></i> 6 Intermediate Waypoints</span>
+            <span class="stat-pill"><i class="fa-solid fa-flag-checkered"></i> Destination: Teppakulam / TC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical Timeline Component -->
+      <div class="modern-card timeline-card">
+        <div class="timeline-header-bar">
+          <div>
+            <h3 class="card-subheading"><i class="fa-solid fa-timeline"></i> Step-by-Step Commute Timeline</h3>
+            <p class="card-caption">Sequential milestones from departure to arrival at campus</p>
+          </div>
+          <span class="route-badge"><i class="fa-solid fa-circle-dot live-pulse"></i> Active Daily Commute</span>
+        </div>
+
+        <div class="vertical-timeline">
+
+          <!-- Stop 1: Home -->
+          <div class="timeline-item start-node">
+            <div class="timeline-marker">
+              <div class="marker-icon home-bg">
+                <i class="fa-solid fa-house-chimney"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 01</span>
+                <span class="category-pill origin">Origin Point</span>
+              </div>
+              <h4 class="node-title">🏠 Home</h4>
+              <p class="node-detail">Commencement of daily morning journey to Thiagarajar College.</p>
+            </div>
+          </div>
+
+          <!-- Stop 2: Walk 10 Minutes -->
+          <div class="timeline-item transit-walk-node">
+            <div class="timeline-marker">
+              <div class="marker-icon walk-bg">
+                <i class="fa-solid fa-person-walking"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content highlight-transit">
+              <div class="node-header">
+                <span class="step-num">Step 02</span>
+                <span class="category-pill pedestrian">Pedestrian Transit</span>
+              </div>
+              <h4 class="node-title">🚶 Walk 10 Minutes</h4>
+              <p class="node-detail">10-minute morning walk connecting residence to the primary boarding terminal.</p>
+              <div class="transit-chip-tag"><i class="fa-regular fa-clock"></i> ~10 mins duration</div>
+            </div>
+          </div>
+
+          <!-- Stop 3: Sandhai Bus Stop -->
+          <div class="timeline-item bus-stop-node">
+            <div class="timeline-marker">
+              <div class="marker-icon stop-bg">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 03</span>
+                <span class="category-pill boarding">Boarding Stop</span>
+              </div>
+              <h4 class="node-title">📍 Sandhai Bus Stop</h4>
+              <p class="node-detail">Primary bus boarding point for transit towards Teppakulam route.</p>
+            </div>
+          </div>
+
+          <!-- Stop 4: Government Bus -->
+          <div class="timeline-item transit-bus-node">
+            <div class="timeline-marker">
+              <div class="marker-icon bus-bg">
+                <i class="fa-solid fa-bus"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content highlight-transit-bus">
+              <div class="node-header">
+                <span class="step-num">Step 04</span>
+                <span class="category-pill public-transit">Public Transit</span>
+              </div>
+              <h4 class="node-title">🚌 Government Bus</h4>
+              <p class="node-detail">Boarding the Government City Bus operating on the Madurai Teppakulam corridor.</p>
+              <div class="transit-chip-tag bus-tag"><i class="fa-solid fa-ticket"></i> TNSTC City Route</div>
+            </div>
+          </div>
+
+          <!-- Stop 5: Keelavasal -->
+          <div class="timeline-item waypoint-node">
+            <div class="timeline-marker">
+              <div class="marker-icon waypoint-bg">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 05</span>
+                <span class="category-pill transit-waypoint">En-route Waypoint</span>
+              </div>
+              <h4 class="node-title">📍 Keelavasal</h4>
+              <p class="node-detail">Heritage city corridor and major junction on the bus route.</p>
+            </div>
+          </div>
+
+          <!-- Stop 6: Munichalai -->
+          <div class="timeline-item waypoint-node">
+            <div class="timeline-marker">
+              <div class="marker-icon waypoint-bg">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 06</span>
+                <span class="category-pill transit-waypoint">En-route Waypoint</span>
+              </div>
+              <h4 class="node-title">📍 Munichalai</h4>
+              <p class="node-detail">Key transit intersection on the way to Kamarajar Salai.</p>
+            </div>
+          </div>
+
+          <!-- Stop 7: Sandhaipettai -->
+          <div class="timeline-item waypoint-node">
+            <div class="timeline-marker">
+              <div class="marker-icon waypoint-bg">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 07</span>
+                <span class="category-pill transit-waypoint">En-route Waypoint</span>
+              </div>
+              <h4 class="node-title">📍 Sandhaipettai</h4>
+              <p class="node-detail">Intermediate stop along the eastern arterial road.</p>
+            </div>
+          </div>
+
+          <!-- Stop 8: Ganesh Theatre -->
+          <div class="timeline-item waypoint-node">
+            <div class="timeline-marker">
+              <div class="marker-icon waypoint-bg">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 08</span>
+                <span class="category-pill transit-waypoint">En-route Waypoint</span>
+              </div>
+              <h4 class="node-title">📍 Ganesh Theatre</h4>
+              <p class="node-detail">Recognized landmark along the Kamarajar Salai transit link.</p>
+            </div>
+          </div>
+
+          <!-- Stop 9: Nirmala School -->
+          <div class="timeline-item waypoint-node">
+            <div class="timeline-marker">
+              <div class="marker-icon waypoint-bg">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 09</span>
+                <span class="category-pill transit-waypoint">En-route Waypoint</span>
+              </div>
+              <h4 class="node-title">📍 Nirmala School</h4>
+              <p class="node-detail">Prominent educational landmark along the route.</p>
+            </div>
+          </div>
+
+          <!-- Stop 10: Anupanadi -->
+          <div class="timeline-item waypoint-node">
+            <div class="timeline-marker">
+              <div class="marker-icon waypoint-bg">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 10</span>
+                <span class="category-pill transit-waypoint">En-route Waypoint</span>
+              </div>
+              <h4 class="node-title">📍 Anupanadi</h4>
+              <p class="node-detail">Penultimate transit corridor leading directly to the Teppakulam lake precinct.</p>
+            </div>
+          </div>
+
+          <!-- Stop 11: Teppakulam -->
+          <div class="timeline-item alight-node">
+            <div class="timeline-marker">
+              <div class="marker-icon alight-bg">
+                <i class="fa-solid fa-map-pin"></i>
+              </div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="node-header">
+                <span class="step-num">Step 11</span>
+                <span class="category-pill deboarding">Alighting Station</span>
+              </div>
+              <h4 class="node-title">📍 Teppakulam</h4>
+              <p class="node-detail">Disembarking point right beside the historic Vandiyur Mariamman Teppakulam.</p>
+            </div>
+          </div>
+
+          <!-- Stop 12: Thiagarajar College -->
+          <div class="timeline-item destination-node">
+            <div class="timeline-marker">
+              <div class="marker-icon destination-bg">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+            </div>
+            <div class="timeline-content destination-highlight">
+              <div class="node-header">
+                <span class="step-num">Step 12</span>
+                <span class="category-pill destination">Final Destination</span>
+              </div>
+              <h4 class="node-title">🎓 Thiagarajar College</h4>
+              <p class="node-detail">Campus arrival: 139–140, Kamarajar Salai, Teppakulam, Madurai – 625009.</p>
+              <div class="campus-reach-badge">
+                <i class="fa-solid fa-circle-check"></i> Arrived at Computer Science Dept
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <p class="footer-copy">&copy; 2026 <strong>Siloni V</strong> • Register No: <strong>24UCS42</strong></p>
+        <p class="footer-sub">B.Sc. Computer Science • Thiagarajar College, Madurai</p>
+      </div>
+      <div class="footer-right">
+        <span class="footer-badge"><i class="fa-solid fa-code"></i> Mini Project Portfolio</span>
+        <a href="#top-nav" class="back-to-top" title="Back to top">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Logic & Interactive Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
