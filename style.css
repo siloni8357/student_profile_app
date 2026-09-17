@@ -430,13 +430,18 @@ button {
 }
 
 .tab-view {
-  display: none;
-  opacity: 0;
+  display: none !important;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
 }
 
 .tab-view.active {
-  display: block;
-  animation: fadeInTab 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: block !important;
+  visibility: visible;
+  height: auto;
+  overflow: visible;
+  animation: fadeInTab 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeInTab {
@@ -1858,18 +1863,98 @@ button {
 }
 
 @media (max-width: 768px) {
-  .nav-menu {
-    display: none;
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
 
-  .mobile-menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .nav-container {
+    padding: 0.65rem 1rem 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .brand-badge {
+    gap: 0.65rem;
+  }
+
+  .brand-avatar-mini {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+    gap: 0.5rem;
+  }
+
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .print-btn {
+    padding: 0.45rem 0.65rem;
   }
 
   .print-btn span {
     display: none;
+  }
+
+  /* 3 Main Dashboard Buttons Always Visible on Mobile */
+  .nav-menu {
+    display: block !important;
+    width: 100%;
+    order: 3;
+  }
+
+  .nav-links {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+    padding: 0.25rem;
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    width: 100%;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem 0.2rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    gap: 0.25rem;
+    border-radius: var(--radius-sm);
+    white-space: normal;
+    line-height: 1.15;
+    min-height: 48px;
+    color: var(--text-secondary);
+  }
+
+  .nav-link i {
+    font-size: 0.95rem;
+  }
+
+  .nav-link.active {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 2px 10px var(--primary-glow);
   }
 
   .hero-title {

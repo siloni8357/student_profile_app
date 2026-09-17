@@ -94,22 +94,8 @@ function switchTab(tabId) {
 window.switchTab = switchTab;
 
 function initNavigation() {
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const mobileDrawer = document.getElementById('mobile-drawer');
-
-  if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('open');
-    });
-  }
-
-  // Handle URL hash on initial page load
-  const initialHash = window.location.hash.replace('#', '');
-  if (['profile', 'academics', 'transport'].includes(initialHash)) {
-    switchTab(initialHash);
-  } else {
-    switchTab('profile');
-  }
+  // Always initialize on 'My Profile' tab by default
+  switchTab('profile');
 
   // Listen to browser forward/backward navigation
   window.addEventListener('popstate', () => {
@@ -121,14 +107,6 @@ function initNavigation() {
     }
   });
 }
-
-// Globally accessible for inline onclick in mobile drawer links
-window.closeMobileMenu = function() {
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  if (mobileDrawer) {
-    mobileDrawer.classList.remove('open');
-  }
-};
 
 /* ==========================================================================
    3. Chart.js Visualizations (Percentage & CGPA)
